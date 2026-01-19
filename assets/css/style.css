@@ -1,6 +1,5 @@
 /* ===== CSS Variables ===== */
 :root {
-    /* Moosgrün Theme (Default) */
     --primary-color: #5E7F5E;
     --primary-light: #7A9A7A;
     --primary-dark: #4A6B4A;
@@ -11,15 +10,6 @@
     --white: #ffffff;
     --shadow: rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-}
-
-/* Beige/Naturfarben Theme */
-[data-theme="nature"] {
-    --primary-color: #A89F91;
-    --primary-light: #BFB5A7;
-    --primary-dark: #8B8074;
-    --secondary-color: #D4C5B0;
-    --bg-light: #FAF8F5;
 }
 
 /* ===== Reset & Base ===== */
@@ -164,11 +154,6 @@ nav {
     height: 100%;
     background: linear-gradient(135deg, rgba(94, 127, 94, 0.2), rgba(143, 175, 143, 0.3));
     z-index: 2;
-}
-
-/* Nature theme overlay */
-[data-theme="nature"] .hero-overlay {
-    background: linear-gradient(135deg, rgba(168, 159, 145, 0.2), rgba(212, 197, 176, 0.3));
 }
 
 .hero-content {
@@ -426,30 +411,6 @@ footer a:hover {
         bottom: 1rem;
         right: 1rem;
         font-size: 1.2rem;
-    }
-}
-
-/* ===== Theme Toggle Button ===== */
-.theme-toggle {
-    background: none;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: var(--transition);
-    font-size: 0.9rem;
-}
-
-.theme-toggle:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-@media (max-width: 768px) {
-    .theme-toggle {
-        margin-top: 1rem;
     }
 }
 

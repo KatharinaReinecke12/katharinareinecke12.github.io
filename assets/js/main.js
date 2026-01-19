@@ -66,3 +66,52 @@ navLinksItems.forEach(link => {
         link.classList.add('active');
     }
 });
+
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const htmlElement = document.documentElement;
+
+// Theme configuration
+const themes = {
+    moss: {
+        name: 'moss',
+        label: '🌾 Natur',
+        dataTheme: null // default theme, no data-theme attribute
+    },
+    nature: {
+        name: 'nature',
+        label: '🌿 Moosgrün',
+        dataTheme: 'nature'
+    }
+};
+
+// Get saved theme or default to moss
+let currentTheme = localStorage.getItem('theme') || 'moss';
+
+// Apply saved theme on page load
+if (currentTheme === 'nature') {
+    htmlElement.setAttribute('data-theme', 'nature');
+    if (themeToggle) themeToggle.textContent = themes.nature.label;
+} else {
+    htmlElement.removeAttribute('data-theme');
+    if (themeToggle) themeToggle.textContent = themes.moss.label;
+}
+
+// Toggle theme on button click
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        if (currentTheme === 'moss') {
+            // Switch to nature theme
+            currentTheme = 'nature';
+            htmlElement.setAttribute('data-theme', 'nature');
+            themeToggle.textContent = themes.nature.label;
+            localStorage.setItem('theme', 'nature');
+        } else {
+            // Switch to moss theme
+            currentTheme = 'moss';
+            htmlElement.removeAttribute('data-theme');
+            themeToggle.textContent = themes.moss.label;
+            localStorage.setItem('theme', 'moss');
+        }
+    });
+}
